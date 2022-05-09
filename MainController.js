@@ -2,7 +2,6 @@ import { Card } from "./CustomObject";
 let cursor_x = 436;
 let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
-    console.log('test');
     let card = new Card();
     //描画コンテキストの取得
     let layer1 = document.getElementById('Layer1');
