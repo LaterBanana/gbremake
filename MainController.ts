@@ -1,8 +1,11 @@
+import {Card} from "./CustomObject";
+
 let cursor_x : number = 436;
 let cursor_y : number = 514;
 
 window.addEventListener('DOMContentLoaded', function() {
-  console.log('test');
+
+  let card : Card = new Card();
 
   //描画コンテキストの取得
   let layer1 : HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('Layer1');
@@ -21,7 +24,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
   //色を指定する
   l1_context.fillStyle = 'red';
-  // l1_context.fillRect(436,514,64,64);
 
   // カードデザイン
   l1_context.fillStyle = 'rgba(255, 0, 0, 0.5)';
@@ -58,7 +60,6 @@ window.addEventListener('DOMContentLoaded', function() {
   cursor_x = 436;
   cursor_y = 514;
   l2_context.fillRect(cursor_x,cursor_y,64,64);
-  console.log('test');
 })
 
 document.addEventListener('keydown', function(e){

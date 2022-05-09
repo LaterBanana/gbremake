@@ -1,12 +1,13 @@
-var cursor_x = 436;
-var cursor_y = 514;
+import { Card } from "./CustomObject";
+let cursor_x = 436;
+let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
-    console.log('test');
+    let card = new Card();
     //描画コンテキストの取得
-    var layer1 = document.getElementById('Layer1');
-    var l1_context = layer1.getContext('2d');
-    var layer2 = document.getElementById('Layer2');
-    var l2_context = layer2.getContext('2d');
+    let layer1 = document.getElementById('Layer1');
+    let l1_context = layer1.getContext('2d');
+    let layer2 = document.getElementById('Layer2');
+    let l2_context = layer2.getContext('2d');
     if (l1_context == null || l2_context == null) {
         return;
     }
@@ -14,7 +15,6 @@ window.addEventListener('DOMContentLoaded', function () {
     layer1.height = 578;
     layer2.width = 624;
     layer2.height = 578;
-    console.log('test');
     //色を指定する
     l1_context.fillStyle = 'red';
     // カードデザイン
@@ -47,11 +47,10 @@ window.addEventListener('DOMContentLoaded', function () {
     cursor_x = 436;
     cursor_y = 514;
     l2_context.fillRect(cursor_x, cursor_y, 64, 64);
-    console.log('test');
 });
 document.addEventListener('keydown', function (e) {
-    var layer2 = document.getElementById('Layer2');
-    var l2_context = layer2.getContext('2d');
+    let layer2 = document.getElementById('Layer2');
+    let l2_context = layer2.getContext('2d');
     console.log(e.key + ':' + e.code);
     if (e.key === 'ArrowLeft') {
         if (cursor_x - 62 < 312 && cursor_y > 2 && cursor_y < 514) {
