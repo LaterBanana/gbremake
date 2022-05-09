@@ -7,8 +7,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
   let card : Card = new Card();
 
-  console.log('test');
-
   //描画コンテキストの取得
   let layer1 : HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('Layer1');
   let l1_context = layer1.getContext('2d');
@@ -62,8 +60,6 @@ window.addEventListener('DOMContentLoaded', function() {
   cursor_x = 436;
   cursor_y = 514;
   l2_context.fillRect(cursor_x,cursor_y,64,64);
-
-  console.log('test');
 
 })
 
