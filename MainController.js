@@ -1,4 +1,4 @@
-import { Card } from "./CustomObject";
+import { Card } from "./CustomObject.js";
 let cursor_x = 436;
 let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
