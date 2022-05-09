@@ -15,3 +15,9 @@ export class Player {
         this.hand = [];
     }
 }
+export class Position {
+    constructor() {
+        this.x = 1;
+        this.y = 1;
+    }
+}

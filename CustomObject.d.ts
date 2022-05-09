@@ -13,4 +13,8 @@ export declare class Player {
     hand: Card[];
     constructor();
 }
+export declare class Position {
+    x: number;
+    y: number;
+}
 //# sourceMappingURL=CustomObject.d.ts.map
