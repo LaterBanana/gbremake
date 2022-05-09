@@ -3,6 +3,7 @@ let cursor_x = 436;
 let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
     let card = new Card();
+    console.log('test');
     //描画コンテキストの取得
     let layer1 = document.getElementById('Layer1');
     let l1_context = layer1.getContext('2d');
@@ -47,6 +48,7 @@ window.addEventListener('DOMContentLoaded', function () {
     cursor_x = 436;
     cursor_y = 514;
     l2_context.fillRect(cursor_x, cursor_y, 64, 64);
+    console.log('test');
 });
 document.addEventListener('keydown', function (e) {
     let layer2 = document.getElementById('Layer2');
