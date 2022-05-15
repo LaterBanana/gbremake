@@ -4,6 +4,8 @@ let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
     let card = new Card();
     console.log('test');
+    let hand = deckLogjc();
+    console.log(hand);
     //描画コンテキストの取得
     let layer1 = document.getElementById('Layer1');
     let l1_context = layer1.getContext('2d');
@@ -104,3 +106,61 @@ document.addEventListener('keydown', function (e) {
         console.log('a button keydown');
     }
 });
+function deckLogjc() {
+    let deck = new Array();
+    let hand = new Array();
+    deck[0] = "ヤマタノ竜絵巻";
+    deck[1] = "謎の手";
+    deck[2] = "謎の手";
+    deck[3] = "謎の手";
+    deck[4] = "仮面道化";
+    deck[5] = "ゾンビランプ";
+    deck[6] = "デーモン・ビーバー";
+    deck[7] = "スピック";
+    deck[8] = "サンダーキッズ";
+    deck[9] = "ダンシング・エルフ";
+    deck[10] = "レッグル";
+    deck[11] = "レッグル";
+    deck[12] = "異国の戦士";
+    deck[13] = "モンスター・アイ";
+    deck[14] = "カラクリ蜘蛛";
+    deck[15] = "デビル・フランケン";
+    deck[16] = "人造人間7号";
+    deck[17] = "ホワイト・ドルフィン";
+    deck[18] = "ツルプルン";
+    deck[19] = "ツルプルン";
+    deck[20] = "キラー・スネーク";
+    deck[21] = "キラー・スネーク";
+    deck[22] = "ブークー";
+    deck[23] = "魔界植物";
+    deck[24] = "ゲール・ドグラ";
+    deck[25] = "ムカムカ";
+    deck[26] = "スター・ボーイ";
+    deck[27] = "骨ネズミ";
+    deck[28] = "カエルスライム";
+    deck[29] = "屋根裏の物の怪";
+    deck[30] = "屋根裏の物の怪";
+    deck[31] = "深淵に咲く花";
+    deck[32] = "くちばしヘビ";
+    deck[33] = "くちばしヘビ";
+    deck[34] = "ミューズの天使";
+    deck[35] = "ミューズの天使";
+    deck[36] = "ミューズの天使";
+    deck[37] = "ブレードフライ";
+    deck[38] = "悪魔の偵察者";
+    deck[39] = "悪魔の偵察者";
+    deck = shuffle(deck);
+    for (let i = 0; i < 5; i++) {
+        hand[i] = deck[i];
+    }
+    return hand;
+}
+function shuffle(arr) {
+    let size = arr.length;
+    for (let i = size; i > 0; i--) {
+        let ran = Math.floor(Math.random() * i);
+        arr.push(arr[ran]);
+        arr.splice(ran, 1);
+    }
+    return arr;
+}
