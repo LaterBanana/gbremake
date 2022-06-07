@@ -12,78 +12,48 @@ window.addEventListener('DOMContentLoaded', function() {
 
   // 画面の基本情報
   let info_context : CanvasRenderingContext2D = getContext('InfoLayer');
-
-  if(info_context == null){
-    alert('画面取得失敗');
-    return;
-  }else{
-    // ライフ
-    info_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
-    info_context.fillRect(4,6,243,89);
-    info_context.fillRect(4,485,243,89);
-
-    // フィールド
-    info_context.fillRect(4,102,305,89);
-
-    // モンスター情報
-    info_context.fillRect(4,198,305,279);
-
-  }
+  // ライフ
+  info_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
+  info_context.fillRect(4,6,243,89);
+  info_context.fillRect(4,485,243,89);
+  // フィールド
+  info_context.fillRect(4,102,305,89);
+  // モンスター情報
+  info_context.fillRect(4,198,305,279);
 
   // プレイヤー手札情報
   let player_context : CanvasRenderingContext2D = getContext('PlayerLayer');
-
-  if(player_context == null){
-    alert('画面取得失敗');
-    return;
-  }else{
-    player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    player_context.fillRect(262,518,40,56);
-    player_context.fillRect(324,518,40,56);
-    player_context.fillRect(386,518,40,56);
-    player_context.fillRect(448,518,40,56);
-    player_context.fillRect(510,518,40,56);
-    player_context.fillRect(572,518,40,56);
-
-  }
+  player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+  player_context.fillRect(262,518,40,56);
+  player_context.fillRect(324,518,40,56);
+  player_context.fillRect(386,518,40,56);
+  player_context.fillRect(448,518,40,56);
+  player_context.fillRect(510,518,40,56);
+  player_context.fillRect(572,518,40,56);
 
   // CPU手札情報
   let enemy_context : CanvasRenderingContext2D = getContext('EnemyLayer');
-
-  if(enemy_context == null){
-    alert('画面取得失敗');
-    return;
-  }else{
-    enemy_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    enemy_context.fillRect(262,6,40,56);
-    enemy_context.fillRect(324,6,40,56);
-    enemy_context.fillRect(386,6,40,56);
-    enemy_context.fillRect(448,6,40,56);
-    enemy_context.fillRect(510,6,40,56);
-    enemy_context.fillRect(572,6,40,56);
-
-  }
+  enemy_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+  enemy_context.fillRect(262,6,40,56);
+  enemy_context.fillRect(324,6,40,56);
+  enemy_context.fillRect(386,6,40,56);
+  enemy_context.fillRect(448,6,40,56);
+  enemy_context.fillRect(510,6,40,56);
+  enemy_context.fillRect(572,6,40,56);
 
   // カーソル
   let cursor_context : CanvasRenderingContext2D = getContext('CursorLayer');
-
-  if(cursor_context == null){
-    alert('画面取得失敗');
-    return;
-  }else{
-    // カーソル
-    cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
-    cursor_context.fillRect(cursor_x,cursor_y,64,64);
-
-    cursor_x = 436;
-    cursor_y = 514;
-  }
+  // カーソル
+  cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
+  cursor_context.fillRect(cursor_x,cursor_y,64,64);
+  cursor_x = 436;
+  cursor_y = 514;
 
   console.log('初期化終了');
 })
 
 document.addEventListener('keydown', function(e){
-  let layer2 : HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('Layer2');
+  let layer2 : HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('CursorLayer');
   let l2_context = layer2.getContext('2d');
 
   console.log(e.key + ':' + e.code);
