@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   let card : Card = new Card();
 
-  let hand :String[] = deckLogjc();
+  let hand :String[] = deckLogic();
   console.log(hand);
 
   // 画面の基本情報
@@ -140,7 +140,7 @@ document.addEventListener('keydown', function(e){
   }
 });
 
-function deckLogjc() : String[]{
+function deckLogic() : String[]{
   let deck :String[] = new Array();
   let hand :String[] = new Array();
 
