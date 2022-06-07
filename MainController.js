@@ -3,54 +3,68 @@ let cursor_x = 436;
 let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
     let card = new Card();
-    console.log('test');
     let hand = deckLogjc();
     console.log(hand);
-    //描画コンテキストの取得
-    let layer1 = document.getElementById('Layer1');
-    let l1_context = layer1.getContext('2d');
-    let layer2 = document.getElementById('Layer2');
-    let l2_context = layer2.getContext('2d');
-    if (l1_context == null || l2_context == null) {
+    // 画面の基本情報
+    let info_context = getContext('InfoLayer');
+    if (info_context == null) {
+        alert('画面取得失敗');
         return;
     }
-    layer1.width = 624;
-    layer1.height = 578;
-    layer2.width = 624;
-    layer2.height = 578;
-    //色を指定する
-    l1_context.fillStyle = 'red';
-    // カードデザイン
-    l1_context.fillStyle = 'rgba(255, 0, 0, 0.5)';
-    l1_context.fillRect(344, 130, 248, 320);
-    // 手札
-    l1_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    l1_context.fillRect(262, 6, 40, 56);
-    l1_context.fillRect(324, 6, 40, 56);
-    l1_context.fillRect(386, 6, 40, 56);
-    l1_context.fillRect(448, 6, 40, 56);
-    l1_context.fillRect(510, 6, 40, 56);
-    l1_context.fillRect(572, 6, 40, 56);
-    l1_context.fillRect(262, 518, 40, 56);
-    l1_context.fillRect(324, 518, 40, 56);
-    l1_context.fillRect(386, 518, 40, 56);
-    l1_context.fillRect(448, 518, 40, 56);
-    l1_context.fillRect(510, 518, 40, 56);
-    l1_context.fillRect(572, 518, 40, 56);
-    // ライフ
-    l1_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
-    l1_context.fillRect(4, 6, 243, 89);
-    l1_context.fillRect(4, 485, 243, 89);
-    // フィールド
-    l1_context.fillRect(4, 102, 305, 89);
-    // モンスター情報
-    l1_context.fillRect(4, 198, 305, 279);
+    else {
+        // ライフ
+        info_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
+        info_context.fillRect(4, 6, 243, 89);
+        info_context.fillRect(4, 485, 243, 89);
+        // フィールド
+        info_context.fillRect(4, 102, 305, 89);
+        // モンスター情報
+        info_context.fillRect(4, 198, 305, 279);
+    }
+    // プレイヤー手札情報
+    let player_context = getContext('PlayerLayer');
+    if (player_context == null) {
+        alert('画面取得失敗');
+        return;
+    }
+    else {
+        player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+        player_context.fillRect(262, 518, 40, 56);
+        player_context.fillRect(324, 518, 40, 56);
+        player_context.fillRect(386, 518, 40, 56);
+        player_context.fillRect(448, 518, 40, 56);
+        player_context.fillRect(510, 518, 40, 56);
+        player_context.fillRect(572, 518, 40, 56);
+    }
+    // CPU手札情報
+    let enemy_context = getContext('EnemyLayer');
+    if (enemy_context == null) {
+        alert('画面取得失敗');
+        return;
+    }
+    else {
+        enemy_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+        enemy_context.fillRect(262, 6, 40, 56);
+        enemy_context.fillRect(324, 6, 40, 56);
+        enemy_context.fillRect(386, 6, 40, 56);
+        enemy_context.fillRect(448, 6, 40, 56);
+        enemy_context.fillRect(510, 6, 40, 56);
+        enemy_context.fillRect(572, 6, 40, 56);
+    }
     // カーソル
-    l2_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
-    cursor_x = 436;
-    cursor_y = 514;
-    l2_context.fillRect(cursor_x, cursor_y, 64, 64);
-    console.log('test');
+    let cursor_context = getContext('CursorLayer');
+    if (cursor_context == null) {
+        alert('画面取得失敗');
+        return;
+    }
+    else {
+        // カーソル
+        cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
+        cursor_context.fillRect(cursor_x, cursor_y, 64, 64);
+        cursor_x = 436;
+        cursor_y = 514;
+    }
+    console.log('初期化終了');
 });
 document.addEventListener('keydown', function (e) {
     let layer2 = document.getElementById('Layer2');
@@ -163,4 +177,14 @@ function shuffle(arr) {
         arr.splice(ran, 1);
     }
     return arr;
+}
+function getContext(id) {
+    let canvas = document.getElementById(id);
+    canvas.width = 624;
+    canvas.height = 578;
+    let canvas_context = canvas.getContext('2d');
+    if (canvas_context == null) {
+        return new CanvasRenderingContext2D();
+    }
+    return canvas_context;
 }
