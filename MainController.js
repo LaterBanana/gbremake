@@ -25,39 +25,38 @@ window.addEventListener('DOMContentLoaded', function () {
     // CPU手札情報
     let enemy_context = getContext('EnemyLayer');
     enemy_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    for (let i = 6; i < 12; i++) {
+    for (let i = 16; i < 22; i++) {
         player_context.fillRect(cells[i].x - 20, cells[i].y - 28, 40, 56);
     }
     // カーソル
     let cursor_context = getContext('CursorLayer');
     // カーソル
     cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
+    cursor_x = cells[1].x - 32;
+    cursor_y = cells[1].y - 32;
     cursor_context.fillRect(cursor_x, cursor_y, 64, 64);
-    cursor_x = 436;
-    cursor_y = 514;
     console.log('初期化終了');
 });
 document.addEventListener('keydown', function (e) {
-    let layer2 = document.getElementById('CursorLayer');
-    let l2_context = layer2.getContext('2d');
+    let cursor_context = getContext('CursorLayer');
     console.log(e.key + ':' + e.code);
     if (e.key === 'ArrowLeft') {
         if (cursor_x - 62 < 312 && cursor_y > 2 && cursor_y < 514) {
             return;
         }
-        l2_context.clearRect(0, 0, 624, 578);
+        cursor_context.clearRect(0, 0, 624, 578);
         cursor_x = cursor_x - 62;
         console.log('x:' + cursor_x + ',y:' + cursor_y);
-        l2_context.fillRect(cursor_x, cursor_y, 64, 64);
+        cursor_context.fillRect(cursor_x, cursor_y, 64, 64);
     }
     else if (e.key === 'ArrowRight') {
         if (cursor_x + 62 > 560) {
             return;
         }
-        l2_context.clearRect(0, 0, 624, 578);
+        cursor_context.clearRect(0, 0, 624, 578);
         cursor_x = cursor_x + 62;
         console.log('x:' + cursor_x + ',y:' + cursor_y);
-        l2_context.fillRect(cursor_x, cursor_y, 64, 64);
+        cursor_context.fillRect(cursor_x, cursor_y, 64, 64);
     }
     else if (e.key === 'ArrowUp') {
         if (cursor_y - 64 < 0) {
@@ -69,9 +68,9 @@ document.addEventListener('keydown', function (e) {
         else {
             cursor_y = cursor_y - 64;
         }
-        l2_context.clearRect(0, 0, 624, 578);
+        cursor_context.clearRect(0, 0, 624, 578);
         console.log('x:' + cursor_x + ',y:' + cursor_y);
-        l2_context.fillRect(cursor_x, cursor_y, 64, 64);
+        cursor_context.fillRect(cursor_x, cursor_y, 64, 64);
     }
     else if (e.key === 'ArrowDown') {
         if (cursor_y + 62 > 514) {
@@ -83,9 +82,9 @@ document.addEventListener('keydown', function (e) {
         else {
             cursor_y = cursor_y + 64;
         }
-        l2_context.clearRect(0, 0, 624, 578);
+        cursor_context.clearRect(0, 0, 624, 578);
         console.log('x:' + cursor_x + ',y:' + cursor_y);
-        l2_context.fillRect(cursor_x, cursor_y, 64, 64);
+        cursor_context.fillRect(cursor_x, cursor_y, 64, 64);
     }
     if (e.key === 'a') {
         console.log('a button keydown');
