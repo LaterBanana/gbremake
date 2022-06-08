@@ -21,7 +21,7 @@ export class Position {
         this.cell[0] = new Coordinate(282, 546);
     }
 }
-class Coordinate {
+export class Coordinate {
     constructor(x, y) {
         this.x = x;
         this.y = y;

@@ -17,10 +17,9 @@ export declare class Position {
     cell: Coordinate[];
     constructor();
 }
-declare class Coordinate {
+export declare class Coordinate {
     x: number;
     y: number;
     constructor(x: number, y: number);
 }
-export {};
 //# sourceMappingURL=CustomObject.d.ts.map
