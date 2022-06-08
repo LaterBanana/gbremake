@@ -66,7 +66,13 @@ document.addEventListener('keydown', function(e){
     }
 
   }else if(e.key === 'ArrowRight'){
-    if(cursor_position != 4 && cursor_position != 9 && cursor_position != 14 && cursor_position != 19){
+    if(cursor_position == 21){
+      cursor_position = 15;
+
+    }else if(cursor_position == 20){
+      cursor_position = 0;
+
+    }else if(cursor_position != 4 && cursor_position != 9 && cursor_position != 14 && cursor_position != 19){
       cursor_position++;
     }
 
