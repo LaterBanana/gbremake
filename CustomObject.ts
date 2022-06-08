@@ -50,10 +50,10 @@ export class Grid{
     this.cell[14] = new FieldStatus(592,  98, 14, 13, 19,  9);
 
     this.cell[15] = new FieldStatus(344,  34, 16, 21, 15, 10);
-    this.cell[16] = new FieldStatus(406,  34, 17, 16, 16, 11);
-    this.cell[17] = new FieldStatus(468,  34, 18, 17, 17, 12);
-    this.cell[18] = new FieldStatus(530,  34, 19, 18, 18, 13);
-    this.cell[19] = new FieldStatus(592,  34, 19, 19, 19, 14);
+    this.cell[16] = new FieldStatus(406,  34, 17, 15, 16, 11);
+    this.cell[17] = new FieldStatus(468,  34, 18, 16, 17, 12);
+    this.cell[18] = new FieldStatus(530,  34, 19, 17, 18, 13);
+    this.cell[19] = new FieldStatus(592,  34, 19, 18, 19, 14);
 
     this.cell[20] = new FieldStatus(282, 546,  0, 20, 21, 20);
     this.cell[21] = new FieldStatus(282,  34, 15, 21, 21, 20);

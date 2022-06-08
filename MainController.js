@@ -125,39 +125,15 @@ function moveCursor(key) {
     cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
     if (key === 'ArrowLeft') {
         cursor_position = cells[cursor_position].left;
-        // if(cursor_position == 15){
-        //   cursor_position = 21;
-        // }else if(cursor_position == 0){
-        //   cursor_position = 20;
-        // }else if(cursor_position != 5 && cursor_position != 10 && cursor_position != 20 && cursor_position != 21){
-        //   cursor_position--;
-        // }
     }
     else if (key === 'ArrowRight') {
         cursor_position = cells[cursor_position].right;
-        // if(cursor_position == 21){
-        //   cursor_position = 15;
-        // }else if(cursor_position == 20){
-        //   cursor_position = 0;
-        // }else if(cursor_position != 4 && cursor_position != 9 && cursor_position != 14 && cursor_position != 19){
-        //   cursor_position++;
-        // }
     }
     else if (key === 'ArrowUp') {
         cursor_position = cells[cursor_position].up;
-        // if(cursor_position == 20){
-        //   cursor_position++;
-        // }else if(cursor_position < 15 ){
-        //   cursor_position = cursor_position + 5;
-        // }
     }
     else if (key === 'ArrowDown') {
         cursor_position = cells[cursor_position].under;
-        // if(cursor_position == 21){
-        //   cursor_position--;
-        // }else if(cursor_position < 20 && cursor_position > 4 ){
-        //   cursor_position = cursor_position - 5;
-        // }
     }
     cursor_context.clearRect(0, 0, 624, 578);
     cursor_x = cells[cursor_position].x - 32;
