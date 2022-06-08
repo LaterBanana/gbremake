@@ -1,4 +1,4 @@
-import {Card} from "./CustomObject.js";
+import {Card, Position} from "./CustomObject.js";
 
 let cursor_x : number = 436;
 let cursor_y : number = 514;
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function() {
   // プレイヤー手札情報
   let player_context : CanvasRenderingContext2D = getContext('PlayerLayer');
   player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-  player_context.fillRect(262,518,40,56);
+  player_context.fillRect(Position.cell[0].x -20 ,518,40,56);
   player_context.fillRect(324,518,40,56);
   player_context.fillRect(386,518,40,56);
   player_context.fillRect(448,518,40,56);
@@ -163,6 +163,11 @@ function deckLogic() : String[]{
   return hand;
 }
 
+/**
+ * 配列の順序をランダムに入れ替える
+ * @param arr 対象配列
+ * @returns 操作後の配列
+ */
 function shuffle(arr : String[]) : String[]{
 
   let size : number = arr.length;
@@ -177,6 +182,11 @@ function shuffle(arr : String[]) : String[]{
   return arr;
 }
 
+/**
+ * キャンバスIDからキャンバスコンテキストをリサイズして返す
+ * @param id キャンバスID
+ * @returns キャンバスコンテキスト
+ */
 function getContext(id : string) : CanvasRenderingContext2D{
 
   let canvas : HTMLCanvasElement = <HTMLCanvasElement>document.getElementById(id);

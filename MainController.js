@@ -1,4 +1,4 @@
-import { Card } from "./CustomObject.js";
+import { Card, Position } from "./CustomObject.js";
 let cursor_x = 436;
 let cursor_y = 514;
 window.addEventListener('DOMContentLoaded', function () {
@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // プレイヤー手札情報
     let player_context = getContext('PlayerLayer');
     player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    player_context.fillRect(262, 518, 40, 56);
+    player_context.fillRect(Position.cell[0].x - 20, 518, 40, 56);
     player_context.fillRect(324, 518, 40, 56);
     player_context.fillRect(386, 518, 40, 56);
     player_context.fillRect(448, 518, 40, 56);
@@ -145,6 +145,11 @@ function deckLogic() {
     }
     return hand;
 }
+/**
+ * 配列の順序をランダムに入れ替える
+ * @param arr 対象配列
+ * @returns 操作後の配列
+ */
 function shuffle(arr) {
     let size = arr.length;
     for (let i = size; i > 0; i--) {
@@ -154,6 +159,11 @@ function shuffle(arr) {
     }
     return arr;
 }
+/**
+ * キャンバスIDからキャンバスコンテキストをリサイズして返す
+ * @param id キャンバスID
+ * @returns キャンバスコンテキスト
+ */
 function getContext(id) {
     let canvas = document.getElementById(id);
     canvas.width = 624;

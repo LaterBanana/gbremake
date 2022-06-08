@@ -17,7 +17,13 @@ export class Player {
 }
 export class Position {
     constructor() {
-        this.x = 1;
-        this.y = 1;
+        this.cell = [];
+        this.cell[0] = new Coordinate(282, 546);
+    }
+}
+class Coordinate {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
 }
