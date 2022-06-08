@@ -56,8 +56,6 @@ document.addEventListener('keydown', function(e){
 
   if(e.key === 'ArrowLeft'){
     if(cursor_position != 5 && cursor_position != 10 && cursor_position != 20 && cursor_position != 21){
-      return;
-    }else{
       cursor_position--;
     }
 
