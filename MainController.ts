@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('keydown', function(e){
   let cursor_context : CanvasRenderingContext2D = getContext('CursorLayer');
+  cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
 
   console.log(e.key + ':' + e.code);
 
