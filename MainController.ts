@@ -1,8 +1,9 @@
-import {Card, Position, Coordinate} from "./CustomObject.js";
+import {Card, Grid, Coordinate} from "./CustomObject.js";
 
 let cursor_x : number = 436;
 let cursor_y : number = 514;
-let cells : Coordinate[] = new Position().cell;
+let cells : Coordinate[] = new Grid().cell;
+let cursor_position : number = 0;
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -25,14 +26,14 @@ window.addEventListener('DOMContentLoaded', function() {
   // プレイヤー手札情報
   let player_context : CanvasRenderingContext2D = getContext('PlayerLayer');
   player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-  for(let i : number = 0; i < 6; i++){
+  for(let i : number = 0; i < 5; i++){
     player_context.fillRect(cells[i].x - 20, cells[i].y - 28, 40, 56);
   }
 
   // CPU手札情報
   let enemy_context : CanvasRenderingContext2D = getContext('EnemyLayer');
   enemy_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-  for(let i : number = 16; i < 22; i++){
+  for(let i : number = 15; i < 20; i++){
     player_context.fillRect(cells[i].x - 20, cells[i].y - 28, 40, 56);
   }
 
@@ -40,8 +41,8 @@ window.addEventListener('DOMContentLoaded', function() {
   let cursor_context : CanvasRenderingContext2D = getContext('CursorLayer');
   // カーソル
   cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
-  cursor_x = cells[1].x - 32;
-  cursor_y = cells[1].y - 32;
+  cursor_x = cells[cursor_position].x - 32;
+  cursor_y = cells[cursor_position].y - 32;
   cursor_context.fillRect(cursor_x,cursor_y,64,64);
 
   console.log('初期化終了');
@@ -54,55 +55,34 @@ document.addEventListener('keydown', function(e){
   console.log(e.key + ':' + e.code);
 
   if(e.key === 'ArrowLeft'){
-    if(cursor_x - 62 < 312 && cursor_y > 2 && cursor_y < 514){
+    if(cursor_position != 5 && cursor_position != 10 && cursor_position != 20 && cursor_position != 21){
       return;
+    }else{
+      cursor_position--;
     }
-    cursor_context.clearRect(0,0,624,578);
-    cursor_x = cursor_x - 62;
-    console.log('x:' + cursor_x + ',y:' + cursor_y);
-    cursor_context.fillRect(cursor_x,cursor_y,64,64);
 
   }else if(e.key === 'ArrowRight'){
-    if(cursor_x + 62 > 560){
-      return;
+    if(cursor_position != 4 && cursor_position != 9 && cursor_position != 14 && cursor_position != 19){
+      cursor_position++;
     }
-
-    cursor_context.clearRect(0,0,624,578);
-    cursor_x = cursor_x + 62;
-    console.log('x:' + cursor_x + ',y:' + cursor_y);
-    cursor_context.fillRect(cursor_x,cursor_y,64,64);
 
   }else if(e.key === 'ArrowUp'){
-    if(cursor_y - 64 < 0){
-      return;
-    }else if(cursor_y - 64 < 450 && cursor_y > 66){
-      cursor_y = 66;
-    }else{
-      cursor_y = cursor_y - 64;
+    if(cursor_position == 20){
+      cursor_position++;
+    }else if(cursor_position < 15 ){
+      cursor_position = cursor_position + 5;
     }
-
-    cursor_context.clearRect(0,0,624,578);
-    console.log('x:' + cursor_x + ',y:' + cursor_y);
-    cursor_context.fillRect(cursor_x,cursor_y,64,64);
-
   }else if(e.key === 'ArrowDown'){
-    if(cursor_y + 62 > 514){
-      return;
-    }else if(cursor_y + 64 > 66 && cursor_y < 450){
-      cursor_y = 450;
-    }else{
-      cursor_y = cursor_y + 64;
+    if(cursor_position == 21){
+      cursor_position--;
+    }else if(cursor_position < 20 && cursor_position > 4 ){
+      cursor_position = cursor_position - 5;
     }
-
-    cursor_context.clearRect(0,0,624,578);
-    console.log('x:' + cursor_x + ',y:' + cursor_y);
-    cursor_context.fillRect(cursor_x,cursor_y,64,64);
-
   }
-
-  if(e.key === 'a'){
-    console.log('a button keydown');
-  }
+  cursor_context.clearRect(0,0,624,578);
+  cursor_x = cells[cursor_position].x - 32;
+  cursor_y = cells[cursor_position].y - 32;
+  cursor_context.fillRect(cursor_x,cursor_y,64,64);
 });
 
 function deckLogic() : String[]{

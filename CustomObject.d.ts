@@ -13,7 +13,7 @@ export declare class Player {
     hand: Card[];
     constructor();
 }
-export declare class Position {
+export declare class Grid {
     cell: Coordinate[];
     constructor();
 }
