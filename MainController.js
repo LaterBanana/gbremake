@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // プレイヤー手札情報
     let player_context = getContext('PlayerLayer');
     player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    player_context.fillRect(cells[0].x - 20, 518, 40, 56);
+    player_context.fillRect(cells[0].x - 20, cells[0].y - 28, 40, 56);
     player_context.fillRect(324, 518, 40, 56);
     player_context.fillRect(386, 518, 40, 56);
     player_context.fillRect(448, 518, 40, 56);
