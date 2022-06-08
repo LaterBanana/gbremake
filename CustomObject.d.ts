@@ -14,8 +14,17 @@ export declare class Player {
     constructor();
 }
 export declare class Grid {
-    cell: Coordinate[];
+    cell: FieldStatus[];
     constructor();
+}
+export declare class FieldStatus {
+    x: number;
+    y: number;
+    right: number;
+    left: number;
+    up: number;
+    under: number;
+    constructor(x: number, y: number, right: number, left: number, up: number, under: number);
 }
 export declare class Coordinate {
     x: number;
