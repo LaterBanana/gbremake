@@ -19,21 +19,15 @@ window.addEventListener('DOMContentLoaded', function () {
     // プレイヤー手札情報
     let player_context = getContext('PlayerLayer');
     player_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    player_context.fillRect(cells[0].x - 20, cells[0].y - 28, 40, 56);
-    player_context.fillRect(324, 518, 40, 56);
-    player_context.fillRect(386, 518, 40, 56);
-    player_context.fillRect(448, 518, 40, 56);
-    player_context.fillRect(510, 518, 40, 56);
-    player_context.fillRect(572, 518, 40, 56);
+    for (let i = 0; i < 6; i++) {
+        player_context.fillRect(cells[i].x - 20, cells[i].y - 28, 40, 56);
+    }
     // CPU手札情報
     let enemy_context = getContext('EnemyLayer');
     enemy_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
-    enemy_context.fillRect(262, 6, 40, 56);
-    enemy_context.fillRect(324, 6, 40, 56);
-    enemy_context.fillRect(386, 6, 40, 56);
-    enemy_context.fillRect(448, 6, 40, 56);
-    enemy_context.fillRect(510, 6, 40, 56);
-    enemy_context.fillRect(572, 6, 40, 56);
+    for (let i = 6; i < 12; i++) {
+        player_context.fillRect(cells[i].x - 20, cells[i].y - 28, 40, 56);
+    }
     // カーソル
     let cursor_context = getContext('CursorLayer');
     // カーソル
