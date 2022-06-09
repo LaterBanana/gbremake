@@ -13,6 +13,7 @@ let cursor_position : number = 0;
 
 window.addEventListener('DOMContentLoaded', function() {
 
+  new Main().main();
   let hand : String[] = deckLogic();
   console.log(hand);
 

@@ -1,4 +1,6 @@
 import { Grid } from "./CustomObject.js";
+// import {Howl} from "howler";
+import { Main } from "./node_modules/DeckLogic";
 let cursor_x = 436;
 let cursor_y = 514;
 let cells = new Grid().cell;
@@ -7,6 +9,7 @@ let cursor_position = 0;
 //   src: './sound1.mp3'
 // });
 window.addEventListener('DOMContentLoaded', function () {
+    new Main().main();
     let hand = deckLogic();
     console.log(hand);
     // 画面の基本情報
