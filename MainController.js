@@ -1,8 +1,12 @@
 import { Card, Grid } from "./CustomObject.js";
+import { Howl } from "howler";
 let cursor_x = 436;
 let cursor_y = 514;
 let cells = new Grid().cell;
 let cursor_position = 0;
+const sound1 = new Howl({
+    src: './sound1.mp3'
+});
 window.addEventListener('DOMContentLoaded', function () {
     let card = new Card();
     let hand = deckLogic();
@@ -40,7 +44,10 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 document.addEventListener('keydown', function (e) {
     console.log(e.key + ':' + e.code);
-    moveCursor(e.key);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        moveCursor(e.key);
+        sound1.play();
+    }
 });
 function deckLogic() {
     let deck = new Array();
@@ -120,6 +127,10 @@ function getContext(id) {
     }
     return canvas_context;
 }
+/**
+ * カーソルを動かす処理
+ * @param key 入力情報
+ */
 function moveCursor(key) {
     let cursor_context = getContext('CursorLayer');
     cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';

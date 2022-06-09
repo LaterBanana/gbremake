@@ -1,9 +1,14 @@
 import {Card, Grid, FieldStatus} from "./CustomObject.js";
+import {Howl} from "howler";
 
 let cursor_x : number = 436;
 let cursor_y : number = 514;
 let cells : FieldStatus[] = new Grid().cell;
 let cursor_position : number = 0;
+
+const sound1 = new Howl({
+  src: './sound1.mp3'
+});
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -50,7 +55,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('keydown', function(e){
   console.log(e.key + ':' + e.code);
-  moveCursor(e.key);
+  if(e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown'){
+    moveCursor(e.key);
+    sound1.play();
+  }
 
 });
 
@@ -145,6 +153,10 @@ function getContext(id : string) : CanvasRenderingContext2D{
   return canvas_context;
 }
 
+/**
+ * カーソルを動かす処理
+ * @param key 入力情報
+ */
 function moveCursor(key : string) : void{
   let cursor_context : CanvasRenderingContext2D = getContext('CursorLayer');
   cursor_context.fillStyle = 'rgba(255, 0, 255, 0.5)';
