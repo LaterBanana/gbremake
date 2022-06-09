@@ -1,5 +1,6 @@
 import {Grid, FieldStatus} from "./CustomObject.js";
 // import {Howl} from "howler";
+import {Main} from "./node_modules/DeckLogic"
 
 let cursor_x : number = 436;
 let cursor_y : number = 514;
