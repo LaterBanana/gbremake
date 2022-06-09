@@ -1,13 +1,15 @@
 import { Grid } from "./CustomObject.js";
-import { Howl } from "howler";
+import { Main as Main2 } from "./DeckLogic";
 let cursor_x = 436;
 let cursor_y = 514;
 let cells = new Grid().cell;
 let cursor_position = 0;
-const sound1 = new Howl({
-    src: './sound1.mp3'
-});
+// const sound1 = new Howl({
+//   src: './sound1.mp3'
+// });
 window.addEventListener('DOMContentLoaded', function () {
+    // new Main().main();
+    new Main2().main();
     let hand = deckLogic();
     console.log(hand);
     // 画面の基本情報
@@ -45,7 +47,7 @@ document.addEventListener('keydown', function (e) {
     console.log(e.key + ':' + e.code);
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         moveCursor(e.key);
-        sound1.play();
+        // sound1.play();
     }
 });
 function deckLogic() {
