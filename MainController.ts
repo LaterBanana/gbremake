@@ -1,7 +1,7 @@
 import {Grid, FieldStatus} from "./CustomObject.js";
 import {Howl} from "howler";
-import {Main} from "./node_modules/DeckLogic"
-import {Main as Main2} from "./DeckLogic"
+import {Main} from "./node_modules/DeckLogic.js"
+import {Main as Main2} from "./DeckLogic.js"
 
 let cursor_x : number = 436;
 let cursor_y : number = 514;
@@ -14,7 +14,7 @@ let cursor_position : number = 0;
 
 window.addEventListener('DOMContentLoaded', function() {
 
-  // new Main().main();
+  new Main().main();
   new Main2().main();
 
   let hand : String[] = deckLogic();

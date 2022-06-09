@@ -1,5 +1,6 @@
 import { Grid } from "./CustomObject.js";
-import { Main as Main2 } from "./DeckLogic";
+import { Main } from "./node_modules/DeckLogic.js";
+import { Main as Main2 } from "./DeckLogic.js";
 let cursor_x = 436;
 let cursor_y = 514;
 let cells = new Grid().cell;
@@ -8,7 +9,7 @@ let cursor_position = 0;
 //   src: './sound1.mp3'
 // });
 window.addEventListener('DOMContentLoaded', function () {
-    // new Main().main();
+    new Main().main();
     new Main2().main();
     let hand = deckLogic();
     console.log(hand);
