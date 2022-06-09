@@ -1,4 +1,4 @@
-import { Card, Grid } from "./CustomObject.js";
+import { Grid } from "./CustomObject.js";
 import { Howl } from "howler";
 let cursor_x = 436;
 let cursor_y = 514;
@@ -8,7 +8,7 @@ const sound1 = new Howl({
     src: './sound1.mp3'
 });
 window.addEventListener('DOMContentLoaded', function () {
-    let card = new Card();
+    // let card : Card = new Card();
     let hand = deckLogic();
     console.log(hand);
     // 画面の基本情報

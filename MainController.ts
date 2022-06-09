@@ -12,7 +12,7 @@ const sound1 = new Howl({
 
 window.addEventListener('DOMContentLoaded', function() {
 
-  let card : Card = new Card();
+  // let card : Card = new Card();
 
   let hand :String[] = deckLogic();
   console.log(hand);
