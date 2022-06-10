@@ -1,21 +1,16 @@
 import {Grid, FieldStatus} from "./CustomObject.js";
 import {Howl} from "howler";
-import {Main} from "./node_modules/DeckLogic.js"
-import {Main as Main2} from "./DeckLogic.js"
 
 let cursor_x : number = 436;
 let cursor_y : number = 514;
 let cells : FieldStatus[] = new Grid().cell;
 let cursor_position : number = 0;
 
-// const sound1 = new Howl({
-//   src: './sound1.mp3'
-// });
+const sound1 = new Howl({
+  src: './sound1.mp3'
+});
 
 window.addEventListener('DOMContentLoaded', function() {
-
-  new Main().main();
-  new Main2().main();
 
   let hand : String[] = deckLogic();
   console.log(hand);
@@ -60,7 +55,7 @@ document.addEventListener('keydown', function(e){
   console.log(e.key + ':' + e.code);
   if(e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown'){
     moveCursor(e.key);
-    // sound1.play();
+    sound1.play();
   }
 
 });
